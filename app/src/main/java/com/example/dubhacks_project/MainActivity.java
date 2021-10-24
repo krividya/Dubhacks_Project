@@ -16,9 +16,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button accessChatButton;
-    private String[] topMatches = new String[] {"Kriti", "Atharva", "Diandre"};
-    private String currentUser = "Atharva";
 
     EditText emailAddress, password;
     Button login, newUser;
@@ -106,10 +103,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openChatActivity(View view){
-        Intent intent = new Intent(this, ChatActivity.class);
-        intent.putExtra("user", this.currentUser);
-        intent.putExtra("match", ((Button)view).getText().toString());
-        startActivity(intent);
-    }
+
 }
