@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ChatActivity"
-                  android:parentActivityName=".MainActivity">
+                  android:parentActivityName=".MainPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
