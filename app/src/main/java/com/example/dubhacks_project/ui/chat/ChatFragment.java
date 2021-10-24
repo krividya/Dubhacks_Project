@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.dubhacks_project.ChatActivity;
+import com.example.dubhacks_project.MainPage;
 import com.example.dubhacks_project.R;
 
 public class ChatFragment extends Fragment {
@@ -30,6 +31,9 @@ public class ChatFragment extends Fragment {
         chatViewModel =
                 new ViewModelProvider(this).get(ChatViewModel.class);
         View root = inflater.inflate(R.layout.fragment_chat, container, false);
+        MainPage activity = (MainPage) this.getActivity();
+        this.topMatches = activity.getTopMatches();
+        this.currentUser = activity.getUser();
         Button button0 = root.findViewById(R.id.zero_match_button);
         Button button1 = root.findViewById(R.id.one_match_button);
         Button button2 = root.findViewById(R.id.two_match_button);
