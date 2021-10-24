@@ -18,8 +18,8 @@ import androidx.navigation.ui.NavigationUI;
 public class MainPage extends AppCompatActivity {
 
     private Button accessChatButton;
-    private String[] topMatches = new String[] {"Kriti", "Atharva", "Diandre"};
-    private String currentUser = "Atharva";
+    private String[] topMatches = new String[] {"Kriti.", "Atharva.", "Diandre."};
+    private String currentUser = "spongebob@gmail.com";
 
 
     @Override
@@ -59,6 +59,8 @@ public class MainPage extends AppCompatActivity {
 
     // substituting values rn so we can replace them with database values
     private String[] matchingAlgorithm(String[] userData, String[][] databaseValues){
+
+        // Will need to edit this to find the name of the user given the email :(
         String[] result = new String[3];
 
         // The first value in the userData is the user's name, then the following values are the rest of the columns in the table

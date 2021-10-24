@@ -74,7 +74,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValue.put("firstName", this.firstName);
         contentValue.put("lastName", this.lastName);
         contentValue.put("genderMe", gender1);
-        contentValue.put("genderYou", gender2)
+        contentValue.put("genderYou", gender2);
         contentValue.put("classStanding",classStanding);
         contentValue.put("major", major);
         contentValue.put("smoke", smoke);
