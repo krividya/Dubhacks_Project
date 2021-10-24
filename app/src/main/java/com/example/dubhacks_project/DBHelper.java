@@ -32,7 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create Table users(emailAddress TEXT primary key, password TEXT, firstName TEXT, lastName TEXT, gender TEXT, classStanding TEXT, major TEXT, smoke TEXT, sleep TEXT)");
+        db.execSQL("create Table users(emailAddress TEXT primary key, password TEXT, firstName TEXT, lastName TEXT, genderMe TEXT, genderYou TEXT, classStanding TEXT, major TEXT, smoke TEXT, sleep TEXT)");
     }
 
     @Override
@@ -66,14 +66,15 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-    public boolean insertInfo(String gender, String classStanding, String major, String smoke, String sleep) {
+    public boolean insertInfo(String gender1, String gender2, String classStanding, String major, String smoke, String sleep) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValue = new ContentValues();
         contentValue.put("emailAddress", this.emailAddress);
         contentValue.put("password", this.password);
         contentValue.put("firstName", this.firstName);
         contentValue.put("lastName", this.lastName);
-        contentValue.put("gender", gender);
+        contentValue.put("genderMe", gender1);
+        contentValue.put("genderYou", gender2)
         contentValue.put("classStanding",classStanding);
         contentValue.put("major", major);
         contentValue.put("smoke", smoke);
