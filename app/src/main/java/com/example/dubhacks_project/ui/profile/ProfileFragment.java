@@ -58,7 +58,7 @@ public class ProfileFragment extends Fragment {
 
             RadioButton button = new RadioButton(this.getContext());
             button.setText(numPanel);
-            button.setId(i);
+
             group.addView(button);
         }
         createotherGender(root);
