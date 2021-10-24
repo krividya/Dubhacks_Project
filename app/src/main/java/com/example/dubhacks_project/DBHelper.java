@@ -66,6 +66,21 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public String[][]getAll(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from users" , null);
+        String[][] values = new String[cursor.getCount()][cursor.getColumnCount()];
+        int count = 0;
+        String[] columnNames = {"emailAddress", "password", "firstName", "lastName", "genderMe", "genderYou", "classStanding", "major", "smoke", "sleep"};
+        while(cursor.moveToNext()){
+            for(int i = 0; i < 10; i++){
+                values[count][i] = cursor.getString(cursor.getColumnIndex(columnNames[i]));
+            }
+            count++;
+        }
+        return values;
+   }
     public boolean insertInfo(String gender1, String gender2, String classStanding, String major, String smoke, String sleep) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValue = new ContentValues();
@@ -74,7 +89,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValue.put("firstName", this.firstName);
         contentValue.put("lastName", this.lastName);
         contentValue.put("genderMe", gender1);
-        contentValue.put("genderYou", gender2)
+        contentValue.put("genderYou", gender2);
         contentValue.put("classStanding",classStanding);
         contentValue.put("major", major);
         contentValue.put("smoke", smoke);
