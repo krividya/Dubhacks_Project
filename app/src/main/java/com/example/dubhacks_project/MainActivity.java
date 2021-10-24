@@ -1,6 +1,9 @@
 package com.example.dubhacks_project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -11,6 +14,10 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button accessChatButton;
+    private String[] topMatches = new String[] {"Kriti", "Atharva", "Diandre"};
+    private String currentUser = "Atharva";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,4 +34,10 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+    public void openChatActivity(View view){
+        Intent intent = new Intent(this, ChatActivity.class);
+        intent.putExtra("user", this.currentUser);
+        intent.putExtra("match", ((Button)view).getText().toString());
+        startActivity(intent);
+    }
 }
