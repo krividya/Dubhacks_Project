@@ -23,15 +23,20 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        instructions(root);
         return root;
     }
 
+    private void instructions(View root){
+        String first = "Ahoy, Roomie! Let's find someone to join our crew!";
+        String second = "Go to the Profile page to change your preferences";
+        String third = "Go to the Chat page to find the people you matched with and text in real time";
+        TextView firstText = root.findViewById(R.id.text_home_first);
+        firstText.setText(first);
+        TextView secondText = root.findViewById(R.id.text_home_second);
+        secondText.setText(second);
+        TextView thirdText = root.findViewById(R.id.text_home_third);
+        thirdText.setText(third);
+    }
 
 }

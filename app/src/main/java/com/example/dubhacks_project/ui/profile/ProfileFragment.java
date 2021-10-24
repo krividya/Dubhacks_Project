@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.dubhacks_project.DBHelper;
 import com.example.dubhacks_project.R;
 import com.example.dubhacks_project.ui.profile.ProfileViewModel;
 
@@ -147,37 +148,40 @@ public class ProfileFragment extends Fragment {
         RadioGroup gendergroup1 = (RadioGroup) root.findViewById(R.id.gender);
         int genderid = gendergroup1.getCheckedRadioButtonId();
         RadioButton genderbutton1 = (RadioButton) root.findViewById(genderid);
-        CharSequence gender1 = genderbutton1.getText();
+        String gender1 = genderbutton1.getText().toString();
         System.out.println(genderbutton1.getText());
 
         RadioGroup gendergroup2 = (RadioGroup) root.findViewById(R.id.othergender);
         int genderid2 = gendergroup2.getCheckedRadioButtonId();
         RadioButton genderbutton2 = (RadioButton) root.findViewById(genderid2);
-        CharSequence gender2 = genderbutton2.getText();
+        String gender2 = genderbutton2.getText().toString();
         System.out.println(genderbutton2.getText());
 
         RadioGroup grade = (RadioGroup) root.findViewById(R.id.gradeoptions);
         int gradeid = grade.getCheckedRadioButtonId();
         RadioButton gradebutton = (RadioButton) root.findViewById(gradeid);
-        CharSequence gradeval = gradebutton.getText();
+        String gradeval = gradebutton.getText().toString();
         System.out.println(gradebutton.getText());
 
         RadioGroup major = (RadioGroup) root.findViewById(R.id.majorsgroup);
         int majorid = major.getCheckedRadioButtonId();
         RadioButton majorbutton = (RadioButton) root.findViewById(majorid);
-        CharSequence majorval = majorbutton.getText();
+        String majorval = majorbutton.getText().toString();
         System.out.println(majorbutton.getText());
 
         RadioGroup smoke = (RadioGroup) root.findViewById(R.id.smoker);
         int smokerid = smoke.getCheckedRadioButtonId();
         RadioButton smokerbutton = (RadioButton) root.findViewById(smokerid);
-        CharSequence smokerval = smokerbutton.getText();
+        String smokerval = smokerbutton.getText().toString();
         System.out.println(smokerbutton.getText());
 
         RadioGroup sleeptime = (RadioGroup) root.findViewById(R.id.sleeptime);
         int sleeptimeid = sleeptime.getCheckedRadioButtonId();
         RadioButton sleeptimebutton = (RadioButton) root.findViewById(sleeptimeid);
-        CharSequence sleep = sleeptimebutton.getText();
+        String sleep = sleeptimebutton.getText().toString();
         System.out.println(sleeptimebutton.getText());
+
+        DBHelper db = new DBHelper(this.getContext());
+        db.insertInfo(gender1, gender2, gradeval, majorval, smokerval, sleep);
     }
 }
